@@ -1,0 +1,64 @@
+{% extends "main.html" %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+
+    <br>
+    <form method="post" action="/create_product" class="w-75">
+        <div class="form-group">
+            <label for="name" class="font-weight-bold">Наименование товара</label>
+            <input type="text" name="name" id="name" class="form-control {% if error.name.1 %}is-invalid{% endif %}" value="{{ error.name.0 }}" required>
+            {% if error.name.1 %}
+            <div class="invalid-feedback">
+                {{ error.name.1 }}
+            </div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="quantity" class="font-weight-bold">Количество</label>
+            <input type="text" name="quantity" id="quantity" class="form-control {% if error.quantity.1 %}is-invalid{% endif %}" value="{{ error.quantity.0 }}" required>
+            {% if error.quantity.1 %}
+            <div class="invalid-feedback">
+                {{ error.quantity.1 }}
+            </div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="price" class="font-weight-bold">Цена</label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">0.00</span>
+                </div>
+                <div class="input-group-prepend">
+                    <span class="input-group-text">РУБ</span>
+                </div>
+                <input type="text" name="price" id="price" class="form-control {% if error.price.1 %}is-invalid{% endif %}" value="{{ error.price.0 }}" required>
+                {% if error.price.1 %}
+                <div class="invalid-feedback">
+                    {{ error.price.1 }}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <button type="submit" name="create_product" value="1" class="btn btn-primary">Добавить</button>
+    </form>
+
+    {% if product %}
+    <br>
+
+    <div class="card w-50">
+        <div class="card-header p-3 mb-2 bg-success text-white">
+            Товар добавлен
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{ product.getName }}</li>
+            <li class="list-group-item">{{ product.getQuantity }}</li>
+            <li class="list-group-item">{{ product.getPriceForInput }}</li>
+        </ul>
+    </div>
+    {% endif %}
+
+    <br>
+
+{% endblock %}
+

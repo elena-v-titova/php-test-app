@@ -1,0 +1,24 @@
+{% extends "main.html" %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+
+    <br>
+    <table class="table">
+        <thead class="text-white bg-info">
+            <tr>
+                <th>Наименование</th>
+                <th>Количество</th>
+                <th>Цена/руб</th>
+            </tr>
+        </thead>
+        {% for product in products %}
+        <tr>
+            <td>{{ product.getName }}</td>
+            <td>{{ product.getQuantity }}</td>
+            <td>{{ product.getPriceForInput }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+
