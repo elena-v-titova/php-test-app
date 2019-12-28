@@ -5,6 +5,8 @@ To run this application you need installed
     pdo_mysql
     mysql
 
+The application uses Doctrine, Twig, fast-route which are installed by composer.
+
 Create database. The database configuration is contained in bootstrap.php.
 
 Copy files php_test_app in /var/www/html
