@@ -1,37 +1,41 @@
 # Setup with Docker
 
-To run the application 'php_test_app' using docker you need installed docker
-and docker-compose.
+To run the application **php_test_app** using docker you need installed *docker*
+and *docker-compose*.
 
-Start containers
-    docker-compose up -d
+1. Start containers
 
-Install dependent packages via composer and update the autoloader
-    docker exec phptest-php-apache composer install
-    docker exec phptest-php-apache composer dump-autoload -o
+		docker-compose up -d
 
-In browser run [localhost:8000](http://localhost:8000).
+2. Install dependent packages via composer and update the autoloader
+
+    	docker exec phptest-php-apache composer install
+    	docker exec phptest-php-apache composer dump-autoload -o
+
+3. In browser run [localhost:8000](http://localhost:8000).
 
 # Setup without Docker
 
 To run this application you need installed
+
     - php7
     - apache with enabled rewrite
     - composer
     - pdo_mysql
     - mysql
 
-The application uses Doctrine, Twig, fast-route which are installed by composer.
+The application uses *Doctrine*, *Twig*, *fast-route* which are installed by composer.
 
-Create database. The database configuration is contained in bootstrap.php.
+1. Create database. The database configuration is contained in bootstrap.php.
 
-Copy files php_test_app in /var/www/html
+2. Copy files *php_test_app/* in */var/www/html*
 
-In the root directory run
-    composer install
-    composer dump-autoload -o
+3. In the root directory run
 
-    phptest-php-apache vendor/bin/doctrine orm:schema-tool:create
+    	composer install
+    	composer dump-autoload -o
 
-In browser run [localhost](http://localhost/index.php).
+    	phptest-php-apache vendor/bin/doctrine orm:schema-tool:create
+
+4. In browser run [localhost](http://localhost/index.php).
 
