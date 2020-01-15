@@ -7,19 +7,19 @@
     <form method="post" action="/create_product" class="w-75">
         <div class="form-group">
             <label for="name" class="font-weight-bold">Наименование товара</label>
-            <input type="text" name="name" id="name" class="form-control {% if error.name.1 %}is-invalid{% endif %}" value="{{ error.name.0 }}" required>
-            {% if error.name.1 %}
+            <input type="text" name="name" id="name" class="form-control {% if form_error.name.1 %}is-invalid{% endif %}" value="{{ form_error.name.0 }}" required>
+            {% if form_error.name.1 %}
             <div class="invalid-feedback">
-                {{ error.name.1 }}
+                {{ form_error.name.1 }}
             </div>
             {% endif %}
         </div>
         <div class="form-group">
             <label for="quantity" class="font-weight-bold">Количество</label>
-            <input type="text" name="quantity" id="quantity" class="form-control {% if error.quantity.1 %}is-invalid{% endif %}" value="{{ error.quantity.0 }}" required>
-            {% if error.quantity.1 %}
+            <input type="text" name="quantity" id="quantity" class="form-control {% if form_error.quantity.1 %}is-invalid{% endif %}" value="{{ form_error.quantity.0 }}" required>
+            {% if form_error.quantity.1 %}
             <div class="invalid-feedback">
-                {{ error.quantity.1 }}
+                {{ form_error.quantity.1 }}
             </div>
             {% endif %}
         </div>
@@ -32,16 +32,23 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">РУБ</span>
                 </div>
-                <input type="text" name="price" id="price" class="form-control {% if error.price.1 %}is-invalid{% endif %}" value="{{ error.price.0 }}" required>
-                {% if error.price.1 %}
+                <input type="text" name="price" id="price" class="form-control {% if form_error.price.1 %}is-invalid{% endif %}" value="{{ form_error.price.0 }}" required>
+                {% if form_error.price.1 %}
                 <div class="invalid-feedback">
-                    {{ error.price.1 }}
+                    {{ form_error.price.1 }}
                 </div>
                 {% endif %}
             </div>
         </div>
         <button type="submit" name="create_product" value="1" class="btn btn-primary">Добавить</button>
     </form>
+
+    <br>
+    {% if exist_error %}
+    <div class="alert alert-danger w-75">
+        {{ exist_error }}
+    </div>
+    {% endif %}
 
     {% if product %}
     <br>

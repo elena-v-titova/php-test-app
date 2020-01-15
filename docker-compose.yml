@@ -19,22 +19,6 @@ services:
         restart: always
         volumes:
             - ./mysql:/var/lib/mysql
-        environment:
-            MYSQL_ROOT_PASSWORD: root+
-            MYSQL_USER: test
-            MYSQL_PASSWORD: test
-            MYSQL_DATABASE: testdb
+        env_file:
+            - db.env
 
-#    phpmyadmin:
-#        image: phpmyadmin/phpmyadmin
-#        environment:
-#            - PMA_ARBITRARY=1
-#        restart: always
-#        ports:
-#            - 8080:80
-#        volumes:
-#            - /sessions
-#        depends_on:
-#            - db
-#        links:
-#            - db

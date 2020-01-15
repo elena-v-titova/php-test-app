@@ -16,9 +16,9 @@ function defaultHandler ($em) {
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/', 'defaultHandler');
     $r->addRoute('GET', '/index.php', 'defaultHandler');
-    $r->addRoute('GET', '/create_product', 'createProduct');
-    $r->addRoute('POST', '/create_product', 'createProduct');
-    $r->addRoute('GET', '/list_products', 'listProducts');
+    $r->addRoute('GET', '/create_product', 'ProductEdit::create');
+    $r->addRoute('POST', '/create_product', 'ProductEdit::create');
+    $r->addRoute('GET', '/list_products', 'ProductView::getAll');
 });
 
 $httpMethod = $_SERVER['REQUEST_METHOD'];
