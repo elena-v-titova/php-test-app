@@ -79,7 +79,7 @@ class ProductForm
 
         $price = (new Validation($this->price[0], 'float'))->validate();
         if (isset($price)) {
-            $this->price[0] = $quantity;
+            $this->price[0] = $price;
         } else {
             $this->price[1] = 'Неверно указана цена товара';
             $this->error = 1;
