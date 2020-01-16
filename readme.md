@@ -12,6 +12,10 @@ and *docker-compose*.
         docker exec phptest-php-apache composer install
         docker exec phptest-php-apache composer dump-autoload -o
 
+3. Create table in the database
+
+        docker exec phptest-php-apache vendor/bin/doctrine orm:schema-tool:create
+
 3. In browser run [localhost:8000](http://localhost:8000).
 
 # Setup without Docker
@@ -35,7 +39,7 @@ The application uses *Doctrine*, *Twig*, *fast-route* which are installed by com
         composer install
         composer dump-autoload -o
 
-        phptest-php-apache vendor/bin/doctrine orm:schema-tool:create
+        vendor/bin/doctrine orm:schema-tool:create
 
 4. In browser run [localhost](http://localhost/index.php).
 
