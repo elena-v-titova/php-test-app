@@ -5,12 +5,12 @@ and *docker-compose*.
 
 1. Start containers
 
-		docker-compose up -d
+        docker-compose up -d
 
 2. Install dependent packages via composer and update the autoloader
 
-    	docker exec phptest-php-apache composer install
-    	docker exec phptest-php-apache composer dump-autoload -o
+        docker exec phptest-php-apache composer install
+        docker exec phptest-php-apache composer dump-autoload -o
 
 3. In browser run [localhost:8000](http://localhost:8000).
 
@@ -32,10 +32,10 @@ The application uses *Doctrine*, *Twig*, *fast-route* which are installed by com
 
 3. In the root directory run
 
-    	composer install
-    	composer dump-autoload -o
+        composer install
+        composer dump-autoload -o
 
-    	phptest-php-apache vendor/bin/doctrine orm:schema-tool:create
+        phptest-php-apache vendor/bin/doctrine orm:schema-tool:create
 
 4. In browser run [localhost](http://localhost/index.php).
 
